@@ -1,0 +1,93 @@
+<ion-view>
+
+<ion-header class="sec_header">
+<div style="float:left;width:100%;height:100%;text-align:center;" class="title_blg">
+	Details
+</div>
+</ion-header>
+
+<ion-content class="padding-horizontal" style="margin-top:70px;margin-bottom:10px;" >
+<!-- <div class="hide-on-keyboard-open"> -->
+<table class="orders_table" ng-show="sessionData">
+	<tr>
+		<th>Image</th>
+		<td>
+			<img  ng-src="{{getImgPath(sessionData.image)}}">          
+		</td>
+	</tr>
+
+	<tr>
+		<th>Date</th>
+		<td>{{sessionData.SessionDate}}</td>
+	</tr>
+
+	<tr>
+		<th>Start Time</th>
+		<td>{{sessionData.SessionStartTime}}</td>
+	</tr>
+
+	<tr>
+		<th>Name</th>
+		<td>{{sessionData.SessionName}}</td>
+	</tr>
+
+	<tr>
+		<th>Venue</th>
+		<td>{{sessionData.VenueName}}</td>
+	</tr>
+
+	<tr>
+		<th>Instructor</th>
+		<td>{{sessionData.nickname}}</td>
+	</tr>
+
+	<tr>
+		<th>Session Length</th>
+		<td>{{sessionData.SessionLength}}</td>
+	</tr>
+</table>
+<!-- </div> -->
+
+
+
+<div class="item item-input-inset hide-border" >
+     
+<label class="item item-input searchbar" id="searchbarview">
+	<i class="icon ion-search placeholder-icon"></i>
+	<input class="search-bar-textbox" type="text" placeholder="Type user name.." ng-change="searchUser()" ng-model="userSearchBar.text">
+</label>
+    <button class="button button-medium button-green" ng-click="addUsersToSession()">
+		Add
+	</button>
+  </div>
+<br>
+
+
+<div ng-show="usersList.length > 0">
+<b>People who booked this session</b>	
+<div ng-repeat="user in usersList" ng-init="(!user.Attended)?(user.Attended=false):(user.Attended=getBooleanValue(user.Attended))" style="margin-top:10px;" >
+	<ion-checkbox ng-model="user.Attended">{{user.first_name}} {{user.last_name}}</ion-checkbox>
+</div>
+</div>
+
+<div  style="padding:5px 0;">
+	<b>Extra Notes: </b>
+	<label class="item item-input"  style="background-color:white !important;margin-top:5px;">
+		<textarea rows="5" placeholder=""  name= "injuries" ng-model="sessionData.injuries"></textarea>
+	</label>
+</div>
+
+<div  style="padding:5px 0;">
+	<b>Injuries: </b>
+	<label class="item item-input"  style="background-color:white !important;margin-top:5px;">
+		<textarea rows="5" placeholder=""  name="extra_notes" ng-model="sessionData.extra_notes"></textarea>
+	</label>
+</div>
+
+<button class="button button-block button-green" ng-click="save()">Save</button>
+
+</ion-content>
+
+
+</ion-view>
+

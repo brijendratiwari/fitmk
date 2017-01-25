@@ -1,0 +1,30 @@
+<ion-view class="page-background-image">
+	<ion-header-bar class="page-title-header" style="height:120px;	">
+
+		<h3 ng-bind-html="categoryName">			
+		</h3>
+
+		<div class="item item-input searchbar content-header-top-margin" ng-hide="products.length == 0 && showerrorMsg">
+			<i class="icon ion-search placeholder-icon"></i>
+			<input type="text" placeholder="Search" ng-change="productSearch()" ng-model="productSearchKey">
+		</div>
+
+	</ion-header-bar>
+
+<ion-content class="padding-horizontal shop-product">
+	<ion-item ng-repeat="product in products | filter:{productTitle:productSearchKey}" class="item-thumbnail-left item-icon-right dark item" href="#/app/addtocart/{{product.productId}}/{{product.catId}}">
+		<img style="{{product.design}}">
+		<div class="dark">
+			<h2 style="white-space:normal;" ng-bind-html="product.productTitle"></h2>
+			<p class="productsummarywrap">					
+				{{product.productSummary}}
+			</p>
+			<i class="icon ion-chevron-right"></i>
+		</div>
+	</ion-item>
+
+	<div ng-show="products.length == 0 && showerrorMsg">
+		<h3 style="text-align: center;color:white;">No items to display at this time, please check back soon!</h3>
+	</div>
+</ion-content>
+</ion-view>

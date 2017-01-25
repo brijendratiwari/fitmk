@@ -1,0 +1,57 @@
+<ion-view class="page-background-image">
+	<ion-header-bar class="page-title-header" style="height:120px;	">
+		<h3>		
+			My Sessions	
+		</h3>
+
+		<div class="schedule_date_container">
+			<a class="button icon-right ion-chevron-left button-green" ng-click="leftArrowDateClick()"></a>
+			<ion-text style="width:100%; text-align:center;color: black;">{{dateToStr(currentDate)}}</ion-text>
+			<a class="button icon-right ion-chevron-right button-green" ng-click="rightArrowDateClick()"></a>
+		</div>
+
+	</ion-header-bar>
+
+	<ion-content class="padding-horizontal" style="margin-top:120px;" >
+
+		<div ng-show="bookedSessions.length == 0 && isShowMsg"> 
+			<h3 style="text-align: center;color: #a9a9a9;padding: 20px;">
+				No sessions
+			</h3>
+		</div>
+
+
+		<div ng-repeat="sessionData in bookedSessions" style="margin-top:10px;background-color: #ffffff;">
+			<table class="mysessions_table">
+				<tr>
+					<th>Image</th>
+					<td>
+						<img  ng-src="{{getImgPath(sessionData.image)}}">          
+					</td>
+				</tr>
+
+
+				<tr>
+					<th>Date and Time </th>
+					<td>{{sessionData.SessionDate}}  {{sessionData.SessionStartTime}}</td>
+				</tr>
+
+
+				<tr>
+					<th>Option</th>
+					<td>
+						<a class="button button-small button-green" ng-href="#/app/calendar/{{sessionData.id}}">
+							View
+						</a>
+					</td>
+				</tr>		
+			</table>
+
+		</div>	
+
+		<ion-infinite-scroll icon="ion-loading-c" ng-if="moreBookesSessionsAvailable" on-infinite="loadMoreBookedSessions()" >
+		</ion-infinite-scroll>
+
+	</ion-content>
+
+</ion-view>

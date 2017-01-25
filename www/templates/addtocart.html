@@ -1,0 +1,31 @@
+<ion-view class="page-background-image">
+	
+	<ion-content class="padding-horizontal">
+
+		<div class="addtocart" ng-show="product.productTitle">
+			<h4 style="white-space:normal;" ng-bind-html="product.productTitle"></h4>
+			<div class="product-image" style="{{product.design}}"></div>
+
+			<p ng-show="viewCount && isAdminOrInstructor()" style="display: flex;">
+				<i class="icon ion-ios-eye" style="font-size: 22px;"></i>
+				<span class="ng-binding" style="text-align: center; vertical-align: middle; padding-left: 5px;">{{viewCount}}</span>
+			</p>
+
+			<p style="font-size: 18px;font-weight: bold;padding-bottom: 0; padding-top: 0;">
+				£{{product.price}}
+			</p>
+			
+			<p>					
+				{{product.productSummary}}
+			</p>
+
+			<div style="width:100%;align-items: center;text-align: center;margin-bottom: 25px;">
+				<button class="button icon-left ion-ios-cart-outline" ng-click="addOnCart()">ADD TO CART</button>
+			</div>
+		</div>
+
+		<div ng-show="!products && showerrorMsg">
+			<h3 style="text-align: center;">No items to display at this time, please check back soon!</h3>
+		</div>
+	</ion-content>
+</ion-view>

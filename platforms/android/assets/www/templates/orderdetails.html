@@ -1,0 +1,93 @@
+<ion-view>
+
+<ion-header class="sec_header">
+<div style="float:left;width:100%;height:100%;text-align:center;" class="title_blg">
+	{{orderType}}
+</div>
+</ion-header>
+
+<ion-content class="padding-horizontal" style="margin-top:110px;">
+
+<div ng-show="orderType == 'Shop Order'" >
+	<div ng-repeat="item in items">
+		<table class="orders_table">
+			<tr>
+				<th>Product</th>
+				<td>
+					<img  ng-src="{{getImgPath(item.thumb)}}">					
+				</td>
+			</tr>
+
+			<tr>
+				<th>Product Name</th>
+				<td>{{item.productTitle}}</td>
+			</tr>
+
+			<tr>
+				<th>Options</th>
+				<td>
+					Qty : {{item.qty}}			
+					<div ng-repeat="optionStr in getKeyValue(item.option)">
+					{{optionStr}}<br />
+					</div>
+				</td>
+			</tr>
+
+			<tr>	
+				<th>Price</th>
+				<td>£{{item.price}}</td>
+			</tr>
+
+			<tr>
+				<th>Total</th>
+				<td ng-init="item.total = getTotal(item.price,item.qty)">£{{item.total}}</td>
+			</tr>
+		</table>
+	</div>
+
+	<label class="item item-input order-total" ng-show="items.length > 0">
+		<div class="input-label">Order Total : </div>
+		<div class="input-label">£{{getOrderTotal()}}</div>	
+	</label>
+	<div  style="padding:5px 0;" ng-show="collectionInfo.length > 0" class="order-notes">
+		<ion-label><b>Notes</b></ion-label>
+		<label class="item item-input"  style="background-color:white !important;">
+			<textarea rows="5" placeholder=""  name= "notes" ng-model="collectionInfo" readonly></textarea>
+		</label>
+	</div>
+</div>
+
+<div ng-show="orderType == 'Package Order'">
+	<div ng-repeat="item in items">
+		<table class="orders_table">
+			<tr>
+				<th>Package Type</th>
+				<td>{{item.PackageType}}</td>
+			</tr>
+
+			<tr>
+				<th>Package Name</th>
+				<td>{{item.PackageTitle}}</td>
+			</tr>
+
+			<tr>
+				<th>Price</th>
+				<td>£{{item.price}}</td>
+			</tr>
+
+			<tr>
+				<th>Total</th>
+				<td>£{{item.package_order_total}}</td>
+			</tr>
+		</table>
+	</div>
+
+	<label class="item item-input order-total" ng-show="items.length > 0">
+		<div class="input-label">Order Total : </div>
+		<div class="input-label">£{{getPackageOrderTotal()}}</div>	
+	</label>	
+</div>
+
+
+</ion-content>
+</ion-view>

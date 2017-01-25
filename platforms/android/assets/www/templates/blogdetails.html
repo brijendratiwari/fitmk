@@ -1,0 +1,57 @@
+<ion-view class="page-background-image">
+
+	<ion-content class="padding-horizontal">
+		<div class="blog-content">
+			
+			<h2 class="blog_title">{{blog.BlogTitle}}</h2>
+
+			<!-- Blog Image -->
+			<div class="blog_img" style="{{blog.design}}" ng-show="blog.blog_type=='image'"></div>
+
+			<!-- Blog Video -->
+			<div class="video-container" ng-show="blog.blog_type=='video'">
+				<iframe src="{{getVideoUrl(blog.url)}}" frameborder="0" allowfullscreen></iframe>
+			</div>
+
+			
+
+
+			<!-- Blog SlideShow -->
+			<div class="blog_slideshow"  ng-show="blog.blog_type == 'slideshow'">
+				<a class="button ion-chevron-left button-green" style="float: left; z-index: 111111; position: absolute;margin-top: 31%" ng-click = "slideBoxPrevious();"></a>
+				<a class="button ion-chevron-right button-green" style="float: right; right: 0; z-index: 111111; position: absolute;margin-top: 31%" ng-click = "slideBoxNext()"></a>
+				<ion-slide-box on-slide-changed="slideHasChanged($index)"><!-- ng-show="blog.blog_type == 'slideshow'" -->
+					<ion-slide>
+						<img src="{{getPathForImage(blog.slide1)}}"/>
+					</ion-slide>
+					<ion-slide>
+						<img src="{{getPathForImage(blog.slide2)}}"/>
+					</ion-slide>
+					<ion-slide>
+						<img src="{{getPathForImage(blog.slide3)}}"/>
+					</ion-slide>
+				</ion-slide-box>
+
+			</div>
+			
+
+			<!-- Blog By -->
+
+			<a class="item item-avatar">
+				<img ng-src="{{(blog.picture == '' || !blog.picture)?'img/Businessman-icon.png':getPathForImage(blog.picture);}}" err-src="img/Businessman-icon.png"> 
+				<h2>{{blog.author}}</h2>
+				<p>{{blog.addedat}}</p>
+			</a>
+
+			<!-- view count -->
+
+			<p class="" ng-show="viewCount && isAdminOrInstructor()" style="display: flex;">
+				<i class="icon ion-ios-eye" style="font-size: 22px;"></i>
+				<span class="ng-binding" style="text-align: center; vertical-align: middle; padding-left: 5px;">{{viewCount}}</span>
+			</p>
+
+			
+			<div ng-bind-html="blog.blogMainContent"></div>
+		</div>
+	</ion-content>
+</ion-view>

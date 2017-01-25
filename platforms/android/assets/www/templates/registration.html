@@ -1,0 +1,116 @@
+<ion-view>
+  <ion-content padding="true">
+    <div class="padding-horizontal">
+      <img class='title-image' src='img/logo.png' style='width:100%;height:auto;margin:30px 0;' />
+      <h5 class="title-header">REGISTRATION DETAILS</h5>
+      <form name="regForm" class="registration-input">
+        <label class="item item-input">
+          <div class="input-label">First Name</div>
+          <input type="text" name="firstname" ng-model="registerdata.firstname">
+        </label>
+        <label class="item item-input">
+          <div class="input-label">Last Name</div>
+          <input type="text" name="lastname" ng-model="registerdata.lastname">
+        </label>
+        <label class="item item-input">
+          <div class="input-label">Username</div>
+          <input type="text" name="uname" ng-model="registerdata.uname">
+        </label>
+        <label class="item item-input">
+          <div class="input-label">E-mail</div>
+          <input type="email" name="email" ng-model="registerdata.email">
+        </label>
+        <label class="item item-input">
+          <div class="input-label">Password</div>
+          <input type="password" name="password" ng-model="registerdata.password">
+        </label>
+        <label class="item item-input">
+          <div class="input-label">Re-Enter Password</div>
+          <input type="password" name="reenterpassword" ng-model="registerdata.reenterpassword">
+        </label>
+        <label class="item item-input">
+          <div class="input-label">Mobile Phone</div>
+          <input type="tel" name="mobilephone" ng-model="registerdata.mobilephone">
+        </label>
+        <label class="item item-input">
+          <div class="input-label">DOB</div>
+          <input type="date" name="dob" ng-model="registerdata.dob" placeholder="Select DOB">
+        </label>
+        <label class="item item-input item-select">
+          <div class="input-label">Gender</div>
+          <select name="gender" ng-model="registerdata.gender" ng-init="registerdata.gender='male'">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </label>
+        <label class="item item-input item-select">
+          <div class="input-label">Fitness Category</div>
+          <select name="fitnessCategory" ng-model="registerdata.fitnessCategory" ng-init="registerdata.fitnessCategory = '1'">
+            <option value="1">Beginner</option>
+            <option value="2">Intermediate</option>
+            <option value="3">Advanced</option>
+          </select>
+        </label>
+
+        <div  style="padding:5px 0;">
+          <ion-label><b>Any Physical Issues</b></ion-label>
+          <label class="item item-input"  style="background-color:white !important;">
+            <textarea rows="5" placeholder=""  name= "physicalIssues" ng-model="registerdata.physicalIssues"></textarea>
+          </label>
+        </div>
+
+         <div  style="padding:5px 0;">
+          <ion-label><b>Other Notes</b></ion-label>
+          <label class="item item-input"  style="background-color:white !important;">
+            <textarea rows="5" placeholder=""  name="otherNotes" ng-model="registerdata.otherNotes"></textarea>
+          </label>
+        </div>
+
+
+        <!-- Measurements -->
+        <label class="item item-input">
+          <div class="input-label optional">Weight</div>
+          <input type="text" name="weight" ng-model="registerdata.weight" decimal-number-only />
+          <label class="button button-dark">kg</label>
+        </label>
+        <label class="item item-input">
+          <div class="input-label optional">Height</div>
+          <input type="text" name="height" ng-model="registerdata.height" decimal-number-only />
+          <label class="button button-dark">cm</label>
+        </label>
+        <label class="item item-input">
+          <div class="input-label optional">Chest</div>
+          <input type="text" name="chest" ng-model="registerdata.chest" decimal-number-only />
+          <label class="button button-dark">cm</label>
+        </label>
+        <label class="item item-input">
+          <div class="input-label optional">Waist</div>
+          <input type="text" name="waist" ng-model="registerdata.waist" decimal-number-only />
+          <label class="button button-dark">cm</label>
+        </label>
+        <label class="item item-input">
+          <div class="input-label optional">Bum</div>
+          <input type="text" name="bum" ng-model="registerdata.bum" decimal-number-only />
+          <label class="button button-dark">cm</label>
+        </label>
+        <label class="item item-input">
+          <div class="input-label optional">Thighs</div>
+          <input type="text" name="thighs" ng-model="registerdata.thighs">
+          <label class="button button-dark">cm</label>
+        </label>
+        <label class="item item-input">
+          <div class="input-label optional">Ankles</div>
+          <input type="text" name="ankles" ng-model="registerdata.ankles" decimal-number-only />
+          <label class="button button-dark">cm</label>
+        </label>
+        <label class="item item-input">
+          <div class="input-label optional">Arms</div>
+          <input type="text" name="arms" ng-model="registerdata.arms" decimal-number-only />
+          <label class="button button-dark">cm</label>
+        </label>
+        <button class="button button-block button-green" type="submit" ng-click="registerSubmit(regForm)">Register</button>
+      </form>
+      <button class="button button-block button-green" ng-click="cancel()">Cancel</button>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,70 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "com.telerik.plugins.healthkit": {
+            "PACKAGE_NAME": "com.fitmk.fitmk"
+        },
+        "cordova-plugin-Location-In-Bgmode": {
+            "PACKAGE_NAME": "com.fitmk.fitmk"
+        },
+        "cordova-plugin-background-mode": {
+            "PACKAGE_NAME": "com.fitmk.fitmk"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.fitmk.fitmk"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.fitmk.fitmk"
+        },
+        "cordova-plugin-facebook4": {
+            "APP_ID": "273745489638222",
+            "APP_NAME": "FitMK",
+            "PACKAGE_NAME": "com.fitmk.fitmk"
+        },
+        "cordova-plugin-google-analytics": {
+            "PACKAGE_NAME": "com.fitmk.fitmk"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.fitmk.fitmk"
+        },
+        "cordova-plugin-pedometer": {
+            "PACKAGE_NAME": "com.fitmk.fitmk"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.fitmk.fitmk"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.fitmk.fitmk"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.fitmk.fitmk"
+        },
+        "de.appplant.cordova.plugin.local-notification": {
+            "PACKAGE_NAME": "com.fitmk.fitmk"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.fitmk.fitmk"
+        },
+        "org.velardo.cordova-plugin-googlefit": {
+            "PACKAGE_NAME": "com.fitmk.fitmk"
+        },
+        "cordova-plugin-fcm": {
+            "PACKAGE_NAME": "com.fitmk.fitmk"
+        },
+        "cordova-plugin-calendar": {
+            "CALENDAR_USAGE_DESCRIPTION": "create events for upcoming sessions",
+            "PACKAGE_NAME": "com.fitmk.fitmk"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-app-event": {
+            "PACKAGE_NAME": "com.fitmk.fitmk"
+        }
+    }
+}

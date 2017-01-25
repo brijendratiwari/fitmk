@@ -1,0 +1,53 @@
+<ion-view>
+<ion-content>
+  <div style="width:100%; height:250px;margin:25px 0;" id="pastSessionMap"> </div><!-- data-tap-disabled="true" -->
+
+  <div style="clear:both;float:left;width:50%;padding:10px;">
+    <label>
+      <i class="icon"></i> Duration
+      <br />
+      <p style="font-size:28px;color:rgb(133, 196, 65)">{{pastSessionData.durations}}</p>
+    </label>
+    <br />
+    <label>
+      <i class="icon"></i> Speed
+      <br />
+      <p style="font-size:28px;color:rgb(133, 196, 65)">
+        {{pastSessionData.speed}}
+        <font class="unit-text"> &nbsp;Km/Hour</font>
+      </p>
+    </label>
+    <br/>
+    <label>
+      <i class="icon"></i> Distance
+      <br />
+      <p style="font-size:28px;color:rgb(133, 196, 65)">
+        {{pastSessionData.kms}}
+        <font class="unit-text"> &nbsp;Km</font>
+      </p>
+    </label>
+  </div>
+  <div style="float:right;width:50%;padding:10px;">
+    <label>
+      <i class="icon "></i> Steps
+      <br />
+      <p style="font-size:28px;color:rgb(133, 196, 65)">{{pastSessionData.steps}}</p>
+    </label>
+    <br />
+    <label>
+      <i class="icon "></i> <span style="text-transform: capitalize;">Calories Burned</span>
+      <br />
+      <p style="font-size:28px;color:rgb(133, 196, 65)">{{pastSessionData.calories}}</p>
+    </label>
+    <br />
+    <label ng-show="deviceType == 'iOS'">
+      <i class="icon "></i> <span style="text-transform: capitalize;">Floors</span>
+      <br />
+      <p style="font-size:28px;color:rgb(133, 196, 65)">{{pastSessionData.floors}}</p>
+    </label>
+  </div>
+  <div style="clear:both;">
+    <button class="button button-block button-dark" style="margin:2.5%;width:95%;"ng-click="deleteSession(pastSessionData.id)">DELETE</button>
+  </div>
+</ion-content>
+</ion-view>

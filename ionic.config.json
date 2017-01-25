@@ -1,0 +1,14 @@
+{
+  "name": "FitMK",
+  "app_id": "12cd62f5",
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "http://dev2.engd.com/brijendra/fit_mk/api"
+    },
+    {
+      "path": "/api2",
+      "proxyUrl": "http://dev2.engd.com/brijendra/fit_mk/api2"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+<ion-view>
+  <ion-header-bar class="hide-border login-header" style="height:auto;text-align:center;">
+    <img class='title-image' src='img/logo.png' style='width:300px;height:auto;margin:20px auto;position:relative;' />
+  </ion-header-bar>
+<ion-content padding="true" class="login-page has-header has-subheader">
+
+  <div class="padding-horizontal">
+
+    <!-- <a class="facebook-sign-in button button-block" ng-click="facebookSignIn()">Login with Facebook</a> -->
+    <button class="button button-block button-positive" ng-click="facebookSignIn()">
+        Login/Register with Facebook
+    </button>
+    <h5 style="text-align:center;margin:20px 0;">or you can</h5>
+    <form class="login-form" name="authorizationForm" ng-class="{'submitted':submitted}">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Email</span>
+          <input type="text" ng-model="loginData.username" name="username"required="">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Password</span>
+          <input type="password" ng-model="loginData.password" name="password" required="">
+        </label>
+      </div>
+      <button class="button button-block button-green" type="submit" ng-click="loginSubmit(authorizationForm)">Log in</button>
+    </form>
+    <p style="font-size:16px;padding:8px;">Forgot your password <a class="text-green-color" href="#/forgotpassword">click here</a></p>
+    <a class="button button-block button-green" type="submit" ng-click = "registration()">Register</a>
+  </div>
+  </ion-content>
+</ion-view>

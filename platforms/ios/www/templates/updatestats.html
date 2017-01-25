@@ -1,0 +1,102 @@
+<ion-view>
+<ion-content>
+  <h4 ng-style="{'text-align':'center'}">Update My Stats</h4>
+  <br />
+  <h5 ng-show="lastUpdated && lastUpdated.length > 0" style="text-align: center;">Last Updated : <label>{{lastUpdated}}</label></h5>
+  <ion-list>
+    <ion-item class="item-borderless stat-input">
+      <label class="item item-input">
+        <div class="input-label">
+          Height
+        </div>
+        <input type="text" ng-model="statsList.Height" decimal-number-only />
+        <label class="button button-dark">cm</label>
+      </label>
+    </ion-item>
+    <ion-item class="item-borderless stat-input">
+      <label class="item item-input">
+        <div class="input-label">
+          Weight
+        </div>
+        <input type="text" ng-model="statsList.Weight" decimal-number-only />
+        <label class="button button-dark">kg</label>
+      </label>
+    </ion-item>
+    <ion-item class="item-borderless stat-input">
+      <label class="item item-input">
+        <div class="input-label">
+          Chest
+        </div>
+        <input type="text" ng-model="statsList.Chest" decimal-number-only />
+        <label class="button button-dark">cm</label>
+      </label>
+    </ion-item>
+    <ion-item class="item-borderless stat-input">
+      <label class="item item-input">
+        <div class="input-label">
+          Waist
+        </div>
+        <input type="text" ng-model="statsList.Waist" decimal-number-only />
+        <label class="button button-dark">cm</label>
+      </label>
+    </ion-item>
+    <ion-item class="item-borderless stat-input">
+      <label class="item item-input">
+        <div class="input-label">
+          Thighs
+        </div>
+        <input type="text" ng-model="statsList.Thighs" decimal-number-only />
+        <label class="button button-dark">cm</label>
+      </label>
+    </ion-item>
+    <ion-item class="item-borderless stat-input">
+      <label class="item item-input">
+        <div class="input-label">
+          Arms
+        </div>
+        <input type="text" ng-model="statsList.Arms" decimal-number-only />
+        <label class="button button-dark">cm</label>
+      </label>
+    </ion-item>
+    <ion-item class="item-borderless stat-input">
+      <label class="item item-input">
+        <div class="input-label">
+          Burpees Per Minute
+        </div>
+        <input type="text" ng-model="statsList.BurpeesPerMinute" number-only />
+        <label class="button button-dark">count</label>
+      </label>
+    </ion-item>
+    <ion-item class="item-borderless stat-input">
+      <label class="item item-input" ng-click="timePer100mPopupShow()">
+        <div class="input-label">
+          Time per 100m
+        </div>
+        <input type="text" ng-model="statsList.Timeper100m" readonly>
+        <label class="button button-dark">m:s</label>
+      </label>
+    </ion-item>
+    <ion-item class="item-borderless stat-input">
+      <label class="item item-input" ng-click="timePer5kmPopupShow()">
+        <div class="input-label">
+          Time per 5km
+        </div>
+        <input type="text" ng-model="statsList.Timeper5km" readonly/>
+        <label class="button button-dark">m:s</label>
+      </label>
+    </ion-item>
+    <ion-item class="item-borderless stat-input">
+      <label class="item item-input" ng-click="timePer10kmPopupShow()">
+        <div class="input-label" >
+          Time per 10km
+        </div>
+        <input type="text" ng-model="statsList.Timeper10km" readonly/>
+        <label class="button button-dark" >m:s</label>
+      </label>
+    </ion-item>
+    <ion-item class="item-borderless stat-input">
+      <button class="button button-block button-green" ng-click="updateStats()">Submit</button>
+    </ion-item>
+  </ion-list>
+</ion-content>
+</ion-view>

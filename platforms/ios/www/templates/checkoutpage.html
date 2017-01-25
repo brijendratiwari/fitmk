@@ -1,0 +1,95 @@
+<ion-view>
+  <ion-content class="padding-horizontal checkout">
+
+    <div class="yourorder">
+      <div class="row header">
+        <h3>Your Order</h3>
+      </div>
+      <div class="row" ng-repeat="data in yourOrder">
+        <div class="col">{{data.title}}</div>
+        <div class="col">{{data.value}}</div>
+      </div>
+    </div>
+
+    <br />
+    <ion-list class="billing-details">
+      <ion-item class="item-borderless stat-input">
+        <h2>Billing Details</h2>
+      </ion-item>
+      <ion-item class="item-borderless stat-input">
+        
+        <label class="item item-input">
+          <div class="input-label">
+            First Name *
+          </div>
+          <input type="text" ng-model="billing.fname"/>
+        </label>
+
+        <label class="item item-input">
+          <div class="input-label">
+            Last Name *
+          </div>
+          <input type="text" ng-model="billing.lname"/>
+        </label>
+
+        <label class="item item-input">
+          <div class="input-label">
+            Company Name
+          </div>
+          <input type="text" ng-model="billing.company_name"/>
+        </label>
+
+        <label class="item item-input">
+          <div class="input-label">
+            Address1 *
+          </div>
+          <input type="text" ng-model="billing.address1"/>
+        </label>
+
+        <label class="item item-input">
+          <div class="input-label">
+            Address2
+          </div>
+          <input type="text" ng-model="billing.address2"/>
+        </label>
+
+        <label class="item item-input">
+          <div class="input-label">
+            Town / City *
+          </div>
+          <input type="text" ng-model="billing.towncity"/>
+        </label>
+
+        <label class="item item-input">
+          <div class="input-label">
+            Postcode *
+          </div>
+          <input type="text" ng-model="billing.postcode"/>
+        </label>
+
+        <label class="item item-input">
+          <div class="input-label">
+            Country *
+          </div>
+          <input type="text" ng-model="billing.country"/>
+        </label>
+
+        <label class="item item-input">
+          <div class="input-label">
+            Email Address *
+          </div>
+          <input type="text" ng-model="billing.email"/>
+        </label>
+
+        <label class="item item-input">
+          <div class="input-label">
+            Phone *
+          </div>
+          <input type="text" ng-model="billing.phone"/>
+        </label>
+
+        <button class="button button-block checkout-now-btn" ng-click="checkoutNow()">Checkout Now</button>
+
+      </ion-item>
+    </ion-list>
+  </ion-view>

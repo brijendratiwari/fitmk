@@ -1,0 +1,9 @@
+{
+	"pods": {
+		"Firebase/Analytics": {
+			"id": "Firebase/Analytics"
+		}
+	},
+	"iosMinVersion": "7.0",
+	"useFrameworks": false
+}

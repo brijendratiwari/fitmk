@@ -1,0 +1,48 @@
+
+<ion-view class="page-background-image">
+
+	<ion-header-bar class="page-title-header" style="height:60px;">
+		<h3>
+			Checkout
+		</h3>
+	</ion-header-bar>
+
+	<ion-content class="padding-horizontal item_cart_view">
+		<div class="item_cart">
+			<div class="item-view" ng-repeat="product in cart_items">
+				<div class="item_div">
+					<div class="image left-div" style="{{product.design}}">
+					</div>
+
+					
+					<div class="right-div">
+						<div class="item_det">
+							<div class="cart_title">{{product.productTitle}}</div>
+							<div class="product_options" ng-repeat="p_option in product.product_option">{{p_option.optTypeName+' : '+getSelectedOptionsValue(p_option.optionname)}}</div>
+						</div>
+						<div class="del_button">
+							<i class="ion-trash-a" ng-click="deleteFromCart({{product.cartId}})"></i>
+							<button class="button button-small button-green" style="margin-top:12px;" ng-click="editCartItem(product)">
+								Edit
+							</button>
+						</div>
+						<div class="cart_item_bottom">
+							<div class="cart_price">{{product.price}} x {{product.qty}}</div>
+							&nbsp;=&nbsp;
+							<div class="total_pr">{{product.price * product.qty}}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="bottom-checkout" ng-show="total > 0">
+				<div class="total_fix"><span>{{total}}</span></div><button class="button-positive" ng-click="continueToPay()">Checkout</button>
+			</div>
+
+		</div>
+		
+	</ion-content>
+	<!-- <ion-footer-bar class="checkout_footer" ng-show="total > 0">
+		<div class="total_fix"><span>{{total}}</span></div><button class="button-positive" ng-click="continueToPay()">Checkout</button>
+	</ion-footer-bar> -->
+</ion-view>

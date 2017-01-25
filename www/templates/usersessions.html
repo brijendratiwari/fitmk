@@ -1,0 +1,48 @@
+<ion-view class="page-background-image">
+	
+	<ion-header-bar class="page-title-header" style="height:120px;	">
+
+		<h3>		
+			Sessions	
+		</h3>
+
+		<div class="schedule_date_container">
+			<div class="schedule-title">Session Schedule </div>
+			<div class="datepicker_sel">
+				<button ng-click="prevDateChange()" class="nextprevbtn">&lt;</button>				
+				<input type="date" ng-model="scheduleDate" ng-change="onSchduleDateChange()" class="custom-date-field date-container">
+				<!-- <input type="date" ng-model="scheduleDate" ng-change="onSchduleDateChange()"> -->
+				<button class="nextprevbtn" ng-click="nextDateChange()" >&gt;</button>
+			</div>
+		</div>
+
+	</ion-header-bar>
+	
+
+	<ion-content class="padding-horizontal" style="margin-top: 105px;">
+
+		<div ng-show="sessions.length == 0 && isShowMsg"> 
+			<h3 style="text-align: center;color: #a9a9a9;padding: 20px;">
+				No sessions
+			</h3>
+		</div>
+
+		<ion-item class="session-data Aligner" ng-repeat="session in sessions">
+						<span ng-bind-html="session.SessionName" class="session-title"></span>
+
+			<div class="session_main">
+				<div>
+					<span>Instructor : {{session.nickname}}</span>
+					<span>Time : {{session.SessionStartTime}}</span>
+					<span>Venue : {{session.VenueName}}</span>
+					<span>Credits : {{session.SessionCreditCost}}</span>
+				</div>
+			</div>
+			<div class="session_sub">
+				<button ng-show="(session.booked == 'No' && session.available == 'Yes')" class="bookNowBtn" ng-click="bookNow(session)">Book Now</button>
+				<button ng-show="session.available == 'No'" class="notAvailableBtn">Not Available</button>
+				<button ng-show="session.booked == 'Yes' && session.available == 'Yes'" class="sessionCancelBtn" ng-click="cancelSession(session)">Cancel</button>
+			</div>
+		</ion-item>
+	</ion-content>
+</ion-view>

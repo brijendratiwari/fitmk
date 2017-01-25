@@ -1,0 +1,108 @@
+  <ion-view>
+    <ion-side-menus enable-menu-with-back-views="false">
+      <ion-side-menu-content drag-content="true">
+        <ion-nav-bar  align-title="right" class="bar-stable">
+          <ion-nav-back-button>
+          </ion-nav-back-button>
+
+          <ion-nav-title class="title header-title-menu" ng-click="goToHome()">
+            <img class='title-image' src='img/logo.png' style='width:auto;height:100%;position:relative;display:block;margin:auto;'/>
+          </ion-nav-title>
+
+          <ion-nav-buttons side="left">
+            <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+            </button>
+          </ion-nav-buttons>
+
+          <ion-nav-buttons side="right">
+            <div class="myCart" ng-click="cartClick()" ng-show="cartItemCount > 0">
+              <span class="top">{{cartItemCount}}</span>
+              <i class="ion-ios-cart"></i>
+            </div>
+            <span  class="credits" ng-click="openPopover($event)">
+              <span ng-bind-html="totalCredits" style="float: left;"></span> &nbsp;©
+            </span>
+
+
+
+          </ion-nav-buttons>
+
+        </ion-nav-bar>
+        <ion-nav-view name="menuContent"></ion-nav-view>
+      </ion-side-menu-content>
+
+      <ion-side-menu side="left">
+    <!-- <ion-header-bar class="bar-stable">
+      <h1 class="title">Left</h1>
+    </ion-header-bar> -->
+    <ion-content class="sidemenu-view">
+      <ion-list class="menu-list-left-padding">
+        <ion-item class="item-borderless">
+          Time Last synced <ion-label style="font-size: 14px;color: #aaa;">{{lastSynchTime}}</ion-label>
+        </ion-item>
+
+        <ion-item class="item-borderless account-status" ng-show="accountStatus.colour && accountStatus.colour.length > 0" ng-style="{'background-color':accountStatus.colour}">
+        {{accountStatus.message}}
+        </ion-item>
+
+        <ion-item menu-close ui-sref="{{menuItem.path}}" class="item-borderless" ng-hide="menuItem.hide" ng-click="menuSelected(menuItem)" ng-repeat="menuItem in menuItemsStateNames">
+          {{menuItem.title}}
+        </ion-item>
+
+
+        <!-- <ion-item menu-close href="#/app/home" class="item-borderless" ng-click="menuSelected('home')">
+          Home
+        </ion-item>
+        <ion-item menu-close href="#/app/profile" class="item-borderless" ng-click="menuSelected('profile')">
+          Profile
+        </ion-item>
+        <ion-item menu-close href="#/app/orders" class="item-borderless" ng-click="menuSelected('orders')">
+          Orders
+        </ion-item>
+        <ion-item menu-close href="#/app/pastbookings" class="item-borderless" ng-click="menuSelected('pastbookings')">
+          Past Bookings
+        </ion-item>
+        <ion-item menu-close href="#/app/usersessions" class="item-borderless" ng-click="menuSelected('usersessions')">
+          Sessions
+        </ion-item>
+        <ion-item menu-close href="#/app/mysessions" class="item-borderless" ng-show="isShowSessionAddUser" ng-click="menuSelected('mysessions')">
+          My Sessions
+        </ion-item>
+        <ion-item menu-close href="#/app/shop" class="item-borderless" ng-click="menuSelected('shop')">
+          Shop
+        </ion-item>
+        <ion-item menu-close href="#/app/venues" class="item-borderless" ng-click="menuSelected('venues')">
+          Venues
+        </ion-item>
+        <ion-item menu-close href="#/app/packages" class="item-borderless" ng-click="menuSelected('packages')">
+          Packages
+        </ion-item>
+        <ion-item menu-close href="#/app/blog" class="item-borderless" ng-click="menuSelected('blog')">
+          Blog
+        </ion-item> -->
+
+        <!-- <h5>DEVICE SETTINGS</h5>
+        <ion-item class="item-borderless">
+          My iPhone
+        </ion-item> -->
+
+        <h5>SETTINGS</h5>
+
+        <ion-item menu-close ui-sref="{{settingItem.path}}" class="item-borderless" ng-click="menuSelected(settingItem)" ng-repeat="settingItem in settingsItemStateNames">
+          {{settingItem.title}}
+        </ion-item>
+
+        <!-- <ion-item menu-close href="#/app/about" class="item-borderless">
+          About
+        </ion-item>
+        <ion-item menu-close href="#/app/helpandfeedback" class="item-borderless">
+          Help & Feedback
+        </ion-item> -->
+        <ion-item menu-close ng-click="signout()" class="item-borderless">
+          Log Out
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>
+</ion-view>

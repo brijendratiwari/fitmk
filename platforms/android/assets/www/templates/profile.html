@@ -1,0 +1,160 @@
+<ion-view>
+<ion-content class="padding-horizontal profile">
+  <h4 class="title-header">EDIT PROFILE</h4>
+
+  <ion-item class="item-borderless stat-input">
+    <a class="button button-block icon-right ion-chevron-right button-green" href="#/app/profile/updatestats">Update My Stats</a>
+  </ion-item>
+  <ion-item class="item-borderless stat-input">
+    <a class="button button-block icon-right ion-chevron-right button-green" href="#/app/profile/updateemail">Update Email</a>
+  </ion-item>
+  <ion-item class="item-borderless stat-input">
+    <a class="button button-block icon-right ion-chevron-right button-green" href="#/app/profile/updatepassword">Update Password</a>
+  </ion-item>
+  <ion-item class="item-borderless stat-input">
+    <label class="item item-input">
+      <div class="input-label">First Name</div>
+      <input type="text" ng-model="userdetails.first_name">
+    </label>
+  </ion-item>
+  <ion-item class="item-borderless stat-input">
+    <label class="item item-input">
+      <div class="input-label">Last Name</div>
+      <input type="text" ng-model="userdetails.last_name">
+    </label>
+  </ion-item>
+  <ion-item class="item-borderless stat-input">
+   <label class="item item-input">
+          <div class="input-label">Username</div>
+          <input type="text" name="uname" ng-model="userdetails.uname">
+  </label>
+  </ion-item>  
+  <ion-item class="item-borderless stat-input">
+    <label class="item item-input">
+      <div class="input-label">Mobile Phone</div>
+      <input type="tel" ng-model="userdetails.phone">
+    </label>
+  </ion-item>
+  <ion-item class="item-borderless stat-input">
+    <label class="item item-input item-select">
+      <div class="input-label">Gender</div>
+      <select name="gender" ng-model="userdetails.gender">
+        <option value="male" selected="selected">Male</option>
+        <option value="female">Female</option>
+      </select>
+    </label>
+  </ion-item>
+  <ion-item class="item-borderless stat-input">
+    <label class="item item-input">
+      <div class="input-label">DOB</div>
+      <input type="date" name="dob" ng-model="userdetails.dateOfBirth" placeholder="Select DOB">
+  </label>
+  </ion-item>
+
+  <ion-item class="item-borderless stat-input">
+    <label class="item item-input item-select">
+          <div class="input-label">Fitness Category</div>
+          <select name="fitnessCategory" ng-model="userdetails.fitnessCategory">
+            <option value="1">Beginner</option>
+            <option value="2">Intermediate</option>
+            <option value="3">Advanced</option>
+          </select>
+        </label>
+  </ion-item>
+
+  <ion-item class="item-borderless stat-input">
+  <div  style="padding:5px 0;">
+          <ion-label><b>Any Physical Issues</b></ion-label>
+          <label class="item item-input"  style="background-color:white !important;">
+            <textarea rows="5" placeholder=""  name= "physicalIssues" ng-model="userdetails.physicalIssues"></textarea>
+          </label>
+        </div>
+  </ion-item>
+
+  <ion-item class="item-borderless stat-input">
+  <div  style="padding:5px 0;">
+          <ion-label><b>Other Notes</b></ion-label>
+          <label class="item item-input"  style="background-color:white !important;">
+            <textarea rows="5" placeholder=""  name="otherNotes" ng-model="userdetails.otherNotes"></textarea>
+          </label>
+        </div>
+  </ion-item>
+       
+
+  <h4 style="text-align:center;margin:20px 0;">EMAIL NOTIFICATIONS</h4>
+
+  <ion-item class="item-borderless item-toggle notifications-toggle">
+    Bookings
+    <label class="toggle">
+      <input type="checkbox" name="email_noti_bookings" ng-checked="userdetails.email_noti_bookings" ng-click="userdetails.email_noti_bookings=!userdetails.email_noti_bookings">
+      <div class="track">
+        <div class="handle"></div>
+      </div>
+    </label>
+  </ion-item>
+  <ion-item class="item-borderless item-toggle notifications-toggle">
+    Newsletters
+    <label class="toggle">
+      <input type="checkbox" name="email_noti_newsletters" ng-checked="userdetails.email_noti_newsletters" ng-click="userdetails.email_noti_newsletters=!userdetails.email_noti_newsletters">
+      <div class="track">
+        <div class="handle"></div>
+      </div>
+    </label>
+  </ion-item>
+
+  <h4 style="text-align:center;margin:20px 0;">PHONE/PUSH NOTIFICATIONS</h4>
+
+  <ion-item class="item-borderless item-toggle notifications-toggle">
+    New Blogs
+    <label class="toggle">
+      <input type="checkbox" name="notification_new_blogs" ng-checked="userdetails.notification_new_blogs" ng-click="userdetails.notification_new_blogs=!userdetails.notification_new_blogs">
+      <div class="track">
+        <div class="handle"></div>
+      </div>
+    </label>
+  </ion-item>
+  <ion-item class="item-borderless item-toggle notifications-toggle">
+    New Events
+    <label class="toggle">
+      <input type="checkbox" name="notification_new_events" ng-checked="userdetails.notification_new_events" ng-click="userdetails.notification_new_events=!userdetails.notification_new_events">
+      <div class="track">
+        <div class="handle"></div>
+      </div>
+    </label>
+  </ion-item>
+  
+  <h4 style="text-align:center;margin:20px;">DAILY TARGETS</h4>
+
+  <ion-item class="item-borderless daily-target-input">
+    <label class="item item-input ">
+      <span class="input-label">Steps</span>
+      <input type="text" ng-model="userdetails.target_steps" number-only />
+    </label>
+  </ion-item>
+
+  <ion-item class="item-borderless daily-target-input">
+    <label class="item item-input">
+      <span class="input-label">Flights (stairs)</span>
+      <input type="text" ng-model="userdetails.target_flights" number-only />
+    </label>
+  </ion-item>
+
+  <ion-item class="item-borderless daily-target-input">
+    <label class="item item-input">
+      <span class="input-label">Distance (km)</span>
+      <input type="text" ng-model="userdetails.target_kms" decimal-number-only />
+    </label>
+  </ion-item>
+
+  <ion-item class="item-borderless daily-target-input">
+    <label class="item item-input">
+      <span class="input-label">Calories (kcal)</span>
+      <input type="text" ng-model="userdetails.target_kcals" decimal-number-only />
+    </label>
+  </ion-item>
+
+  <ion-item class="item-borderless stat-input" style="margin-top:10px;">
+    <button class="button button-block button-green" ng-click="submit()">Submit</button>
+  </ion-item>
+</ion-content>
+</ion-view>

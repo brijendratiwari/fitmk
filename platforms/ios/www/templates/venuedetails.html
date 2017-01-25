@@ -1,0 +1,18 @@
+<ion-view class="page-background-image">
+
+	<ion-content class="padding-horizontal">
+		<div class="blog-content">
+			
+			<h2 class="blog_title">{{venue.VenueName}}</h2>
+
+			<!-- Venue Map -->
+			<div style="width:100%; height:250px;margin:25px 0;" id="venueLocationMap"> </div>
+			
+			<h2 style="white-space:normal;color:#778899;font-size: calc(10px + 1vw);">{{venue.VenueAddress}}<br>{{venue.VenuePostCode}}</h2>
+
+			<div ng-bind-html="venue.VenueDesc"></div>
+
+			<button class="button button-block button-green" ng-click="openMaps()">Open Maps</button>
+		</div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,28 @@
+<ion-view class="page-background-image">
+	<ion-header-bar class="page-title-header" style="height:60px;">
+		<h3>
+			Venues
+		</h3>
+
+		<!-- <div class="item item-input searchbar content-header-top-margin">
+			<i class="icon ion-search placeholder-icon"></i>
+			<input type="text" placeholder="Search" ng-change="packageSearch()" ng-model="packageSearchKey">
+		</div> -->
+	</ion-header-bar>
+	<ion-content class="padding-horizontal" style="margin-top:60px">
+
+		<ion-item ng-repeat = "venue in venues" class = "item-thumbnail-left item-icon-right dark item venue-item" ng-click="venuesSelected(venue)">
+
+		<img style="{{getDesingForImage(venue.image)}}">
+		<!-- <img ng-src = "http://dev2.engd.com/brijendra/fit_mk/assets/images/uploads/{{venue.image}}" err-src=" "> -->
+		<div class="dark">
+				<h2><b>{{venue.VenueName}}</b></h2>
+				<i class="ion-location" style="color:#84C341;font-size: calc(9px + 1vw);" ng-show="venue.VenueLat && venue.VenueLong"> {{venue.VenueLat}},{{venue.VenueLong}}</i>
+				<h2 style="white-space:normal;color:#778899;font-size: calc(10px + 1vw);">{{venue.VenueAddress}}<br>{{venue.VenuePostCode}}</h2>
+				<i class="icon ion-chevron-right"></i>
+			</div>
+
+		</ion-item>
+	
+	</ion-content>
+</ion-view>

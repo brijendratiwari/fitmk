@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-Location-In-Bgmode"
+  version="0.0.1"
+  xmlns="http://apache.org/cordova/ns/plugins/1.0"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <name>LocationInBgmode</name>
+
+  <js-module name="LocationInBgmode" src="www/LocationInBgmode.js">
+    <clobbers target="cordova.plugins.LocationInBgmode" />
+  </js-module>
+  <platform name="android">
+    <config-file parent="/*" target="res/xml/config.xml">
+      <feature name="LocationInBgmode">
+        <param name="android-package" value="cordova.plugin.Location.In.Bgmode.LocationInBgmode" />
+      </feature>
+    </config-file>
+    <config-file parent="/manifest/application" target="AndroidManifest.xml">
+      <service android:enabled="true" android:name="cordova.plugin.Location.In.Bgmode.LocationService" />
+      <receiver android:enabled="true" android:name="cordova.plugin.Location.In.Bgmode.LocationInBgmode$LocationReceiver">
+        <intent-filter>
+          <action android:name="cordova.plugin.Location.In.Bgmode.LocationService.BROADCAST_ACTION" />
+        </intent-filter>
+      </receiver>
+    </config-file>
+    <config-file parent="/manifest" target="AndroidManifest.xml">
+      <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+      <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    </config-file>
+    <source-file src="src/android/LocationInBgmode.java" target-dir="src/cordova/plugin/Location/In/Bgmode" />
+    <source-file src="src/android/LocationService.java" target-dir="src/cordova/plugin/Location/In/Bgmode" />
+  </platform>
+
+  <platform name="ios">
+    <!-- required background modes:  App registers for location updates -->
+    <config-file target="*-Info.plist" parent="UIBackgroundModes">
+      <array>
+        <string>location</string>
+      </array>
+    </config-file>
+    <config-file target="*-Info.plist" parent="NSLocationAlwaysUsageDescription">
+      <string>This application requires location services to work</string>
+    </config-file>
+
+    <config-file parent="/*" target="config.xml">
+      <feature name="LocationInBgmode">
+        <param name="ios-package" value="LocationInBgmode" />
+        <param name="onload" value="true"/>
+      </feature>
+    </config-file>
+
+    <framework src="CoreLocation.framework" weak="true" />
+
+    <source-file src="src/ios/LocationInBgmode.m" />
+    <header-file src="src/ios/LocationInBgmode.h" />
+  </platform>
+</plugin>

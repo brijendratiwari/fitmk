@@ -1,0 +1,108 @@
+<ion-view>
+  <ion-header class="sec_header">
+    <h4 class="title_blg">
+      Orders
+    </h4>
+    <div class="button-bar segment-order">
+      <a class="button" ng-class="(segmentActiveIndex == 0)?'selected':'unselected'" ng-click="shopOrderClick(0);">Shop</a>
+      <a class="button" ng-class="(segmentActiveIndex == 1)?'selected':'unselected'" ng-click="packageOrderClick(1);">Package</a>
+    </div>
+  </ion-header>
+
+  <ion-content class="padding-horizontal" style="margin-top:140px; padding-bottom: 20px;">
+
+   <div ng-show="orders.length == 0 && isShowMsg"> 
+   <h3 style="text-align: center;color: #a9a9a9;padding: 20px;">
+      No orders
+    </h3>
+  </div>
+
+  <div ng-show="segmentActiveIndex == 0">
+
+
+
+    <div ng-repeat="order in orders">
+     <table class="orders_table">
+      <tr>
+        <th>Order</th>
+        <td>{{order.order_number}}</td>
+      </tr>
+
+      <tr>
+        <th>Date</th>
+        <td>{{order.completed_date}}</td>
+      </tr>
+
+      <tr>
+        <th>Status</th>
+        <td>{{order.order_status}}</td>
+      </tr>
+
+      <tr>
+        <th>Rating</th>
+        <td ng-init="(!order.rating)?(order.rating=0):0">
+         <button ng-repeat="count in [1,2,3,4,5]" class="button button-small icon-left ion-star button-positive" ng-click="order.rating = count;ratingChanged(order);" ng-class = "(count <= order.rating)?'star_rated':'star'">        
+         </button>        
+       </td>
+     </tr>
+
+     <tr>
+      <th>Option</th>
+      <td>
+        <button class="button button-small button-green" ng-click="viewOrderDetails(order.order_id)">
+          View
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<ion-infinite-scroll icon="ion-loading-c" ng-if="moreOrdersAvailable" on-infinite="loadMoreOrders(0)"  distance="2%">
+</ion-infinite-scroll>
+</div>
+
+
+
+<div ng-show="segmentActiveIndex == 1">
+
+  <div ng-repeat="order in orders">
+   <table class="orders_table">
+    <tr>
+      <th>Order</th>
+      <td>{{order.package_order_number}}</td>
+    </tr>
+
+    <tr>
+      <th>Package</th>
+      <td>{{order.PackageTitle}}</td>
+    </tr>
+
+    <tr>
+      <th>Date</th>
+      <td>{{order.package_payment_date}}</td>
+    </tr>
+
+    <tr>
+      <th>Status</th>
+      <td>{{order.package_order_status}}</td>
+    </tr>
+
+    <tr>
+      <th>Option</th>
+      <td>
+        <button class="button button-small button-green" ng-click="viewPackageOrderDetails(order.order_id)">
+          View
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>
+<ion-infinite-scroll icon="ion-loading-c" ng-if="moreOrdersAvailable" on-infinite="loadMoreOrders(1)" >
+</ion-infinite-scroll>
+</div>
+
+
+
+</ion-content>
+
+</ion-view>

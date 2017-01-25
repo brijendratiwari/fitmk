@@ -1,0 +1,54 @@
+	<ion-view class="page-background-image">
+	<ion-header-bar class="page-title-header" style="height:120px;">
+		<h3>
+			BLOG
+		</h3>
+
+		<div class="item item-input searchbar content-header-top-margin">
+			<i class="icon ion-search placeholder-icon"></i>
+			<input type="text" placeholder="Search" ng-change="blogSearch()" ng-model="blogSearchKey">
+		</div>
+	</ion-header-bar>
+	
+	<ion-content class="padding-horizontal blog-list">
+		
+		<ion-item ng-repeat="(ind, blog) in blogs" class="item-thumbnail-left item-icon-right dark item" ng-href="#/app/blogdetails/{{blog.id}}">
+			<img style="{{blog.design}}">
+			<div class="dark">
+			
+				<h2 style="width:100%;height:40px;line-height:20px;white-space: normal;" ng-bind-html="blog.BlogTitle"></h2>
+				<h4 style="white-space:nowrap;" class="" > by {{blog.author}}</h4>
+				<p style="white-space:nowrap;">					
+					{{blog.metaTags}}
+				</p>
+				<i class="icon ion-chevron-right"></i>
+			</div>
+		</ion-item>
+
+
+		<!-- <div class="blog_list" ng-repeat="(ind, blog) in blogs">
+			<div class="blog-content">
+				<div class="blog_img" style="{{blog.design}}"></div>
+				<h4 class="blog_title">{{blog.BlogTitle}}</h4>
+				<div class="gen_det">
+					By					
+					<span class="by_user text-green-color"> {{blog.author}}</span>
+					<span>
+						<i class="ion-calendar"></i>						
+						{{blog.addedat}}
+					</span>
+					<span class="full_width">
+						<i class="ion-ios-pricetags"></i>						
+						{{blog.metaTags}}
+					</span>
+				</div>
+
+				<a class="button btn" ng-href="#/app/blogdetails/{{blog.id}}/{{blog.blog_type}}">
+					Read More
+				</a>
+			</div>
+		</div> -->
+		<ion-infinite-scroll icon="ion-loading-c" ng-if="moreBlogsAvailable" on-infinite="loadMoreBlogs()"  distance="2%">
+		</ion-infinite-scroll>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,31 @@
+<ion-view class="page-background-image">
+	<ion-header-bar class="page-title-header" style="height:60px;">
+		<h3>
+			Our Drill Instructors
+		</h3>
+
+		<!-- <div class="item item-input searchbar content-header-top-margin">
+			<i class="icon ion-search placeholder-icon"></i>
+			<input type="text" placeholder="Search" ng-change="packageSearch()" ng-model="packageSearchKey">
+		</div> -->
+	</ion-header-bar>
+	<ion-content class="padding-horizontal" style="margin-top:60px">
+
+		<ion-item ng-repeat = "drillInstructor in drillInstructors" class = "item-thumbnail-left item-icon-right dark item venue-item" ng-click="drillInstructorSelected(drillInstructor)">
+
+			<img style="{{getDesingForImage(drillInstructor.picture)}}">
+			<!-- <img ng-src = "http://dev2.engd.com/brijendra/fit_mk/assets/images/uploads/{{drillInstructor.image}}" err-src=" "> -->
+			<div class="dark">
+				<h2><b>{{drillInstructor.nickname}}</b></h2>
+				<div class="Aligner" style="justify-content: flex-start;">
+					<i class="ion-gear-b"></i>&nbsp;
+					<label class="" style="color:#778899;font-size: calc(9px + 1vw);"> {{drillInstructor.info_years}}&nbsp;years a DI</label>
+				</div>
+
+				<i class="icon ion-chevron-right"></i>
+			</div>
+
+		</ion-item>	
+
+	</ion-content>
+</ion-view>

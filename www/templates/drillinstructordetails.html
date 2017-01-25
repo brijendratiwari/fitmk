@@ -1,0 +1,25 @@
+<ion-view class="page-background-image">
+
+	<ion-content class="padding-horizontal">
+		<div class="drillinstructor-content">
+			
+			<h2 class="blog_title">{{drillInstructor.nickname}}</h2>
+			<div class="Aligner" style="justify-content: flex-start;">
+				<i class="ion-gear-b"></i>&nbsp;
+				<label class="" style="color:#778899;font-size: calc(9px + 1vw);"> {{drillInstructor.info_years}}&nbsp;years a DI</label>
+			</div>
+			<div class="di-detail">
+				<div><label>Burpees Per Min: </label> <label>{{drillInstructor.info_burpees_min}}</label></div>
+				<div><label>Body Fat: </label><label>{{drillInstructor.info_bodyfat}}%</label></div>
+				<div><label>5km Time: </label><label>{{drillInstructor.info_5kmtime}}mins</label> </div>
+				<div><label>Calories Consumed/Day: </label><label>{{drillInstructor.info_calories_day}}</label></div>
+				<div><label>Proudest Athletic Acheivement: </label><label>{{drillInstructor.info_proudest_moment}}</label></div>
+			</div>
+			
+			<div class="drillinstructor_img" style="{{getDesingForImage(drillInstructor.picture)}}"></div>
+
+			<div class="info-story" ng-bind-html="drillInstructor.info_story"></div>
+
+		</div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,93 @@
+<ion-view>
+  <div class="sec_header">
+    <div style="float:left;width:100%;height:100%;text-align:center;" class="title_blg">
+      Packages
+    </div>
+  </div>
+  <div class="package-search-view">
+    <label class="item item-input searchbar">
+      <i class="icon ion-search placeholder-icon"></i>
+      <input type="text" placeholder="Search" ng-change="packageSearch()" ng-model="packageSearchKey">
+    </label>
+    <label class="item item-input item-select category">
+      <select class="input-label" name="category" ng-model="categoryType" ng-options="category for category in categories track by category" ng-change="categoryChange()">
+        <option value="{{category}}">{{category}}</option>
+      </select>
+    </label>
+  </div>
+
+  <ion-content class="padding-horizontal packages" style="margin-top:140px;">
+
+    <h2 ng-show="userPackages && userPackages.length > 0">My Package</h2>
+    <ion-item class="item-stable my-package"  ng-repeat="package in userPackages | filter:{PackageTitle:packageSearchKey}">
+      <div class="package-img">
+        <img ng-src="{{getImagePath(package.image)}}" />
+      </div>
+      
+      <h2>{{package.PackageTitle}}</h2>
+      <p>{{package.PackageDescription}} </p>
+
+      <h1 class="price">
+        £{{(package.PackageType == 'MON')?package.PackageSessionMonCost:package.PackageSessionIntCost}}
+      </h1>
+      <p ng-show="renewalDate.length > 0" class="renewal-date">
+        <span>My Renewal Date : {{renewalDate}}</span>
+      </p>
+    </ion-item>
+
+    <h2 ng-show="monthlyPackages && monthlyPackages.length > 0">Monthly Packages</h2>
+    <ion-item class="item-stable" ng-repeat="package in monthlyPackages | filter:{PackageTitle:packageSearchKey}">  
+      <div class="top-price-view">
+        <div class="currency">£</div>
+        <div class="price">{{package.PackageCost}}</div>
+        <div class="category">{{package.PackageType}}</div>
+      </div>
+
+      <p>{{package.PackageDescription}} </p>
+
+      <div class="bottom-button-view ">
+        <h2>{{package.PackageTitle}}</h2>
+        <button class="button button-block bg-green-color"  ng-click="purchaseNow(package)">
+          Buy
+        </button>
+      </div>
+    </ion-item>
+
+    <h2 ng-show="otherPackages && otherPackages.length > 0">Other Packages</h2>
+    <ion-item class="item-stable" ng-repeat="package in otherPackages | filter:{PackageTitle:packageSearchKey}">  
+      <div class="top-price-view">
+        <div class="currency">£</div>
+        <div class="price">{{package.PackageCost}}</div>
+        <div class="category">{{package.PackageType}}</div>
+      </div>
+
+      <p>{{package.PackageDescription}} </p>
+
+      <div class="bottom-button-view ">
+        <h2>{{package.PackageTitle}}</h2>
+        <button class="button button-block bg-green-color"  ng-click="purchaseNow(package)">
+          Buy
+        </button>
+      </div>
+    </ion-item>
+
+
+    <h2 ng-show="offerPackages && offerPackages.length > 0">Special Offers</h2>
+    <ion-item class="item-stable" ng-repeat="package in offerPackages | filter:{PackageTitle:packageSearchKey}">  
+      <div class="top-price-view">
+        <div class="currency">£</div>
+        <div class="price">{{package.PackageCost}}</div>
+        <div class="category">{{package.PackageType}}</div>
+      </div>
+
+      <p>{{package.PackageDescription}} </p>
+
+      <div class="bottom-button-view ">
+        <h2>{{package.PackageTitle}}</h2>
+        <button class="button button-block bg-green-color"  ng-click="purchaseNow(package)">
+          Buy
+        </button>
+      </div>
+    </ion-item>
+  </ion-content>
+</ion-view>

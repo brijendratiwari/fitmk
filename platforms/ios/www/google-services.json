@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "377159102443",
+    "firebase_url": "https://fitmk-b2870.firebaseio.com",
+    "project_id": "fitmk-b2870",
+    "storage_bucket": "fitmk-b2870.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:377159102443:android:4b9f1dd4d2519c3f",
+        "android_client_info": {
+          "package_name": "com.fitmk.fitmk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "377159102443-9k6dn2jbe0qcln1nat1i0so2cci4toed.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgJAlxhPnFmFJQgpu63iY9QaPJl80Mmi0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
